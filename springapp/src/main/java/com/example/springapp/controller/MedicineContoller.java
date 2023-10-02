@@ -1,3 +1,5 @@
+package com.example.springapp.controller;
+
 import com.example.springapp.model.Medicine;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +17,10 @@ public class MedicineContoller {
     }
 
     // PUT endpoint to update a medicine by medicineId
-    @PutMapping("/{medicineId}")
-    public Medicine updateMedicine(@PathVariable int medicineId, @RequestBody Medicine updatedMedicine) {
+    @PutMapping("/{id}") // Change the path variable to "id"
+    public Medicine updateMedicine(@PathVariable int id, @RequestBody Medicine updatedMedicine) {
         for (Medicine medicine : medicineList) {
-            if (medicine.getMedicineId() == medicineId) {
+            if (medicine.getMedicineId() == id) { // Update the parameter name to "id"
                 medicine.setMedicineName(updatedMedicine.getMedicineName());
                 medicine.setPrice(updatedMedicine.getPrice());
                 medicine.setQuantity(updatedMedicine.getQuantity());
